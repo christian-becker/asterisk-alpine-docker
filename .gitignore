@@ -1,0 +1,3 @@
+# asterisk configuration files
+etc-asterisk/*
+!etc-asterisk/.gitkeep
