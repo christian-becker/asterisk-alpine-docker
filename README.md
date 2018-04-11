@@ -18,7 +18,7 @@ docker build -t asterisk-alpine-docker .
 #### A) run with sample configuration
 If you already have asterisk configuration files, then you can skip this step (go on with 3.).  
 ```
-docker run --name asterisk-alpine-docker-sample --net=host -d -t asterisk-alpine-docker
+docker run --name asterisk-alpine-docker-sample --net=host -d -t christianbecker/asterisk-alpine-docker
 ```
 
 
@@ -26,6 +26,7 @@ docker run --name asterisk-alpine-docker-sample --net=host -d -t asterisk-alpine
 To get started just copy the sample configuration from docker container to your own directory. The container can be deleted after this step.  
 ```
 docker cp asterisk-alpine-docker-sample:/etc/asterisk/. etc-asterisk/
+docker stop asterisk-alpine-docker-sample
 docker rm asterisk-alpine-docker-sample
 ```
 Make your changes to files in "etc-asterisk" directory and use it as docker volume in a new container.  
@@ -35,7 +36,7 @@ Make your changes to files in "etc-asterisk" directory and use it as docker volu
 ### 3.) RUN the container - with your own configuration in directory "etc-asterisk"
 Run docker container with your own configuration and let docker restart it automatically if necessary.  
 ```
-docker run --name asterisk-alpine-docker --net=host -v $(pwd)/etc-asterisk/:/etc/asterisk/ -d -t --restart=always asterisk-alpine-docker
+docker run --name asterisk-alpine-docker --net=host -v $(pwd)/etc-asterisk/:/etc/asterisk/ -d -t --restart=always christianbecker/asterisk-alpine-docker
 ```
 
 ---
