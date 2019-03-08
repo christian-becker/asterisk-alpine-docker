@@ -1,5 +1,5 @@
 # start with Alpine Linux
-FROM alpine
+FROM alpine:3.9
 MAINTAINER Christian Becker <mail@christianbecker.name>
 
 # system setup with "asterisk" and requirements
